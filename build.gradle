@@ -32,16 +32,16 @@ repositories {
 dependencies {
 
     // GWT START
-	compile group: 'com.google.gwt', name: 'gwt-user', version: gwtVersion
+    compile group: 'com.google.gwt', name: 'gwt-user', version: gwtVersion
     compile group: 'com.google.gwt', name: 'gwt-dev', version: gwtVersion
     compile group: 'com.google.gwt', name: 'gwt-elemental', version: gwtVersion
     compile group: 'com.google.gwt', name: 'gwt-servlet', version: gwtVersion
-	// GWT END
+    // GWT END
 
 }
 
 jar {
-	from sourceSets.main.allSource
+    from sourceSets.main.allSource
 }
 
 

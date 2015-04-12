@@ -98,6 +98,7 @@ public class RouterTest extends GWTTestCase {
         }
     }
 
+
     class MockValueChangeEvent extends ValueChangeEvent<String> {
 
         public MockValueChangeEvent(String value) {
