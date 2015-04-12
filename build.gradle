@@ -1,0 +1,37 @@
+apply plugin: 'java'
+
+defaultTasks = ['jar']
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+archivesBaseName = 'minus'
+version = '1.7-SNAPSHOT'
+
+def gwtVersion = '2.7.0'
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // GWT START
+	compile group: 'com.google.gwt', name: 'gwt-user', version: gwtVersion
+    compile group: 'com.google.gwt', name: 'gwt-dev', version: gwtVersion
+    compile group: 'com.google.gwt', name: 'gwt-elemental', version: gwtVersion
+    compile group: 'com.google.gwt', name: 'gwt-servlet', version: gwtVersion
+	// GWT END
+
+}
+
+jar {
+	from sourceSets.main.allSource
+}
