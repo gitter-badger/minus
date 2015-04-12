@@ -2,12 +2,20 @@ apply plugin: 'java'
 
 defaultTasks = ['jar']
 
+def gwtVersion = '2.7.0'
+def getLastTag = { ->
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'describe', '--abbrev=0', '--match=minus-*'
+        standardOutput = stdout
+    }
+    return stdout.toString().trim()
+}
+
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
-archivesBaseName = 'minus'
-version = '1.7-SNAPSHOT'
-
-def gwtVersion = '2.7.0'
+archivesBaseName = getLastTag()
+version = 'SNAPSHOT'
 
 sourceSets {
     main {
@@ -35,3 +43,4 @@ dependencies {
 jar {
 	from sourceSets.main.allSource
 }
+
